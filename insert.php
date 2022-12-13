@@ -2,6 +2,7 @@
 
 //1. POSTデータ取得
 $bookName = $_POST['bookName'];
+$bookAuthor = $_POST['bookAuthor'];
 $bookUrl = $_POST['bookUrl'];
 $bookComment = $_POST['bookComment'];
 

@@ -27,7 +27,7 @@
 
     <!-- Main[Start] -->
     <form method="post" action="search.php">
-        <div class="jumbotron">
+        <div class="search">
             <fieldset>
                 <legend>本を検索する</legend>
                 <label>書籍名：<input type="text" name="bookNameSearch"></label><br>

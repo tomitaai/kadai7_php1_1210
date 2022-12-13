@@ -77,7 +77,9 @@ $get_count = count($books);
     <div class="loop_books row">
 
       <!-- 取得した書籍情報を順に表示 -->
-      <?php foreach($books as $book):
+      <?php
+      $i = 0;
+      foreach($books as $book):
           // タイトル
           $title = $book->volumeInfo->title;
 
@@ -92,14 +94,16 @@ $get_count = count($books);
           $authors = implode(',', $book->volumeInfo->authors);
 
       ?>
-        <div class="loop_books_item col-4">
+        <div class="loop_books_item col-4" data-bs-toggle="modal" data-bs-target="#registerModal">
           <img class="loop_books_img" src="<?php echo $thumbnail; ?>" alt="<?php echo $title; ?>"><br />
-          <p>
+          <p class="loop_books_str">
             <b>『<?php echo $title; ?>』</b><br />
             著者：<?php echo $authors; ?>
           </p>
+
         </div>
-      <?php endforeach; ?>
+      <?php $i++;
+      endforeach; ?>
 
     </div><!-- ./loop_books -->
 
@@ -109,5 +113,129 @@ $get_count = count($books);
 
   <?php endif; ?>
 
+
+
+
+
+
+
+
+
+
+  <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">本を登録する</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+            <form method="post" action="insert.php">
+        <div class="insert">
+            <fieldset>
+              <!-- <div class="form-group"> -->
+              <div class="row">
+                <div class="col-md-6">
+                <label class="normallabel">書籍名：</label><input class="form-control" type="text" name="bookName"><br>
+                <label class="normallabel">著者名：</label><input class="form-control" type="text" name="bookAuthor">
+                <label>URL：</label><input class="form-control" type="text" name="bookUrl"><br>
+  </div>
+  </div>
+                <div class="form-group">
+                        <label class="normallabel">めも：</label>
+                        <textarea cols="50" rows="2" class="form-control" name="bookComment"></textarea>
+                    </div>
+
+
+                <input type="submit" value="送信">
+            </fieldset>
+        </div>
+    </form>
+
+
+
+
+
+
+
+                <!-- <div class="container-fluid">
+                <form>
+                    <div class="form-group">
+                            <label class="normallabel" for="name">料理名</label>
+                            <textarea id="name" class="form-control"></textarea>
+                    </div>       
+                    <div class="form-group">
+                        <label class="normallabel" for="image">レシピ画像</label>
+                        <input type="file" id="image" class="form-control" accept="image/*">
+                        <div class="row">
+                            <div class="col-3 uploadimagearea" id="uploadimage" class="form-control"></div>
+                            <textarea id="base64" class="col-9 base64area" rows="6"></textarea>
+                        </div>
+                    <div class="form-group">
+                        <label class="normallabel" for="url">URL</label>
+                        <input type="url" id="url" class="form-control">
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 form-group">
+                            <label class="starlabel" for="rating1">たろう</label>
+                            <div class="star-rating">
+                                <input type="radio" name="rating1" value="1"><i></i>
+                                <input type="radio" name="rating1" value="2"><i></i>
+                                <input type="radio" name="rating1" value="3"><i></i>
+                                <input type="radio" name="rating1" value="4"><i></i>
+                                <input type="radio" name="rating1" value="5"><i></i>
+                            </div>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label class="starlabel" for="rating2">はなこ</label>
+                            <div class="star-rating">
+                                <input type="radio" name="rating2" value="1"><i></i>
+                                <input type="radio" name="rating2" value="2"><i></i>
+                                <input type="radio" name="rating2" value="3"><i></i>
+                                <input type="radio" name="rating2" value="4"><i></i>
+                                <input type="radio" name="rating2" value="5"><i></i>
+                            </div>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label class="starlabel" for="rating3">けん</label>
+                            <div class="star-rating">
+                                <input type="radio" name="rating3" value="1"><i></i>
+                                <input type="radio" name="rating3" value="2"><i></i>
+                                <input type="radio" name="rating3" value="3"><i></i>
+                                <input type="radio" name="rating3" value="4"><i></i>
+                                <input type="radio" name="rating3" value="5"><i></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="normallabel" for="memo">めも：</label>
+                        <textarea id="memo" cols="50" rows="2" class="form-control"></textarea>
+                    </div>
+                </form>
+                </div> -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn close-btn" data-bs-dismiss="modal">
+                    閉じる
+                </button>
+                <button type="button" id="save" class="btn save-btn">
+                    登録
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="js/main.js">
+
+</script>
 </body>
 </html>
