@@ -1,0 +1,23 @@
+.count{
+  margin: 20px;
+}
+
+
+.loop_books_img {
+  margin: 50px 0px;
+  width: 200px;
+  height: auto;
+  aspect-ratio: 3/4;
+  text-align: center;
+}
+
+
+.loop_books_item{
+  width: 300px;
+  height: 450px;
+  text-align: center;
+  border: 1px solid darkblue;
+
+}
+
+
