@@ -137,25 +137,52 @@ $get_count = count($books);
               <!-- <div class="form-group"> -->
               <div class="row">
                 <div class="col-md-6">
-                <label class="normallabel">書籍名：</label><input class="form-control" type="text" name="bookName"><br>
-                <label class="normallabel">著者名：</label><input class="form-control" type="text" name="bookAuthor">
-                <label>URL：</label><input class="form-control" type="text" name="bookUrl"><br>
-  </div>
-  </div>
-                <div class="form-group">
-                        <label class="normallabel">めも：</label>
-                        <textarea cols="50" rows="2" class="form-control" name="bookComment"></textarea>
-                    </div>
-
-
-                <input type="submit" value="送信">
-            </fieldset>
-        </div>
-    </form>
 
 
 
 
+
+
+                  <label class="normallabel">書籍名：</label>
+                  <input class="form-control" type="text" name="bookName" value="aa">
+                  <label class="normallabel">著者名：</label>
+                  <input class="form-control" type="text" name="bookAuthor">
+                  <label class="normallabel">URL：</label>
+                  <input class="form-control" type="text" name="bookUrl"><br>
+                  <label class="starlabel">評価：</label>
+                  <div class="star-rating">
+                    <input type="radio" name="bookRate" value="1"><i></i>
+                    <input type="radio" name="bookRate" value="2"><i></i>
+                    <input type="radio" name="bookRate" value="3"><i></i>
+                    <input type="radio" name="bookRate" value="4"><i></i>
+                    <input type="radio" name="bookRate" value="5"><i></i>
+                  </div>
+                </div>
+                <div class="col-md-6 modal-img">
+                  <img src="<?php echo $thumbnail; ?>" alt="<?php echo $title; ?>">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="normallabel">めも：</label>
+                <textarea cols="50" rows="2" class="form-control" name="bookComment"></textarea>
+                <div id="p1">aa</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </div>
 
 
 
@@ -220,10 +247,14 @@ $get_count = count($books);
                 <button type="button" class="btn close-btn" data-bs-dismiss="modal">
                     閉じる
                 </button>
-                <button type="button" id="save" class="btn save-btn">
+                <button type="submit" id="save" class="btn save-btn">
                     登録
                 </button>
             </div>
+            </fieldset>
+        </div>
+    </form>
+
         </div>
     </div>
 </div>

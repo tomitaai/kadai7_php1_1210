@@ -1,13 +1,29 @@
-// $(function(){
-//     $(document).on({
-//         'mouseenter' : function() {
-//             $('.registerBtn').css('color','red');
-//         },
-//         'mouseleave' : function(){
-//             $('.registerBtn').css('color','black')}
-//         }, '.registerBtn');
-    // $(".registerBtn").after('<p class="bb">ここにマウスを重ねるとAAAAが赤字になる。</p>');
-    // })
+$(function(){
+    $(document).on({
+        'mouseenter' : function() {
+            $('.save-btn').css('color','red');
+        },
+        'mouseleave' : function(){
+            $('.save-btn').css('color','black')}
+        }, '.save-btn');
+    $(".save-btn").after('<p class="bb">ここにマウスを重ねるとAAAAが赤字になる。</p>');
+    })
+
+
+$(function() {
+    $(".loop_books_item").on("click", function() {
+        $("#p1").css('color','black');
+    });
+    });
+
+
+    // $(function() {
+    //     $(".loop_books_item").on("click", function() {
+    //         $("#p1").html($(this).text());
+    //     });
+    //     });
+
+
 
 
 
