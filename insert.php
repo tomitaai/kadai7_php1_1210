@@ -2,7 +2,7 @@
 
 //1. POSTデータ取得
 $bookName = $_POST['bookName'];
-$bookAuthor = $_POST['bookAuthor'];
+$bookAuthors = $_POST['bookAuthors'];
 $bookUrl = $_POST['bookUrl'];
 $bookRate = $_POST['bookRate'];
 $bookComment = $_POST['bookComment'];
@@ -20,15 +20,15 @@ exit('DBConnectError:'.$e->getMessage());
 
 // 1. SQL文を用意
 $stmt = $pdo->prepare('INSERT INTO
-                        gs_bm_table(id, bookName, bookAuthor, bookUrl, bookRate, bookComment, date)
-                        VALUES(NULL, :bookName, :bookAuthor, :bookUrl, :bookRate, :bookComment, sysdate())');
+                        gs_bm_table(id, bookName, bookAuthors, bookUrl, bookRate, bookComment, date)
+                        VALUES(NULL, :bookName, :bookAuthors, :bookUrl, :bookRate, :bookComment, sysdate())');
 
 //  2. バインド変数を用意
 // Integer 数値の場合 PDO::PARAM_INT
 // String文字列の場合 PDO::PARAM_STR
 
 $stmt->bindValue(':bookName', $bookName, PDO::PARAM_STR);
-$stmt->bindValue(':bookAuthor', $bookAuthor, PDO::PARAM_STR);
+$stmt->bindValue(':bookAuthors', $bookAuthors, PDO::PARAM_STR);
 $stmt->bindValue(':bookUrl', $bookUrl, PDO::PARAM_STR);
 $stmt->bindValue(':bookRate', $bookRate, PDO::PARAM_STR);
 $stmt->bindValue(':bookComment', $bookComment, PDO::PARAM_STR);

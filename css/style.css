@@ -26,6 +26,9 @@
   padding: 10px;
 }
 
+.btn{
+  border: solid #4310c4af;
+}
 
 /* 入力フォーム */
 .form-group{

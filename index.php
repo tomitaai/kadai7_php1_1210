@@ -31,7 +31,7 @@
             <fieldset>
                 <legend>本を検索する</legend>
                 <label>書籍名：<input type="text" name="bookNameSearch"></label><br>
-                <label>著者名：<input type="text" name="bookAuthorSearch"></label><br>
+                <label>著者名：<input type="text" name="bookAuthorsSearch"></label><br>
                 <input type="submit" value="送信">
             </fieldset>
         </div>

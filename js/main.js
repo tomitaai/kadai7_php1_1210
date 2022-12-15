@@ -1,28 +1,38 @@
+$(document).on("click", ".loop_books_item", function () {
+    let MyBookName = document.getElementById("bookName");
+    MyBookName.value = ($(this).children('.loop_books_title')).text();
+    let MyBookAuthors = document.getElementById("bookAuthors");
+    MyBookAuthors.value = ($(this).children('.loop_books_authors')).text();
+    // let MyBookUrl = document.getElementById("bookUrl");
+    // MyBookUrl.value = ($(this).children('.loop_books_title')).text();
+    // let MyBookName = document.getElementById("bookName");
+    // MyBookName.value = ($(this).children('.loop_books_title')).text();
+
+});
+
+
+
+
 $(function(){
     $(document).on({
         'mouseenter' : function() {
-            $('.save-btn').css('color','red');
+            $('.close-btn').css('backgroundColor','#4310c455');
         },
         'mouseleave' : function(){
-            $('.save-btn').css('color','black')}
-        }, '.save-btn');
-    $(".save-btn").after('<p class="bb">ここにマウスを重ねるとAAAAが赤字になる。</p>');
+            $('.close-btn').css('backgroundColor','#ffffff')}
+        }, '.close-btn');
     })
 
-
-$(function() {
-    $(".loop_books_item").on("click", function() {
-        $("#p1").css('color','black');
-    });
-    });
-
-
-    // $(function() {
-    //     $(".loop_books_item").on("click", function() {
-    //         $("#p1").html($(this).text());
-    //     });
-    //     });
-
+    $(function(){
+        $(document).on({
+            'mouseenter' : function() {
+                $('.save-btn').css('backgroundColor','#4310c455');
+            },
+            'mouseleave' : function(){
+                $('.save-btn').css('backgroundColor','#ffffff')}
+            }, '.save-btn');
+        })
+    
 
 
 

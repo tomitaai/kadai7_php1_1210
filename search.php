@@ -1,13 +1,13 @@
 <?php
 // POSTデータ取得
 $bookNameSearch = $_POST['bookNameSearch'];
-$bookAuthorSearch = $_POST['bookAuthorSearch'];
+$bookAuthorsSearch = $_POST['bookAuthorsSearch'];
 
 // 検索条件を配列にする
 $params = [
   // 連想配列は「キー => 値」 の形で記述する
   'intitle'  => $bookNameSearch,  //書籍タイトル
-  'inauthor' => $bookAuthorSearch       //著者
+  'inauthor' => $bookAuthorsSearch       //著者
 ];
 
 // 1ページあたりの取得件数
@@ -93,13 +93,17 @@ $get_count = count($books);
           // 著者（配列なのでカンマ区切りに変更）
           $authors = implode(',', $book->volumeInfo->authors);
 
+          // URL
+          $url = $book->volumeInfo->infoLink;
+
       ?>
-        <div class="loop_books_item col-4" data-bs-toggle="modal" data-bs-target="#registerModal">
-          <img class="loop_books_img" src="<?php echo $thumbnail; ?>" alt="<?php echo $title; ?>"><br />
-          <p class="loop_books_str">
-            <b>『<?php echo $title; ?>』</b><br />
-            著者：<?php echo $authors; ?>
-          </p>
+        <div class="loop_books_item col-4">
+          <img class="loop_books_img" src="<?php echo $thumbnail; ?>" alt="<?php echo $title; ?>">
+          <br />
+          <p class="loop_books_title"><b>『<?php echo $title; ?>』</b></p>
+          <p class="loop_books_authors">著者：<?php echo $authors; ?></p>
+          <a href="<?php echo $url; ?>"><button>詳細情報確認</button></a>
+          <button data-bs-toggle="modal" data-bs-target="#registerModal">登録</button>
 
         </div>
       <?php $i++;
@@ -120,7 +124,7 @@ $get_count = count($books);
 
 
 
-
+<!-- 以下モーダル -->
 
   <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -144,11 +148,11 @@ $get_count = count($books);
 
 
                   <label class="normallabel">書籍名：</label>
-                  <input class="form-control" type="text" name="bookName" value="aa">
+                  <input class="form-control" id="bookName" type="text" name="bookName">
                   <label class="normallabel">著者名：</label>
-                  <input class="form-control" type="text" name="bookAuthor">
+                  <input class="form-control" id="bookAuthors" type="text" name="bookAuthors">
                   <label class="normallabel">URL：</label>
-                  <input class="form-control" type="text" name="bookUrl"><br>
+                  <input class="form-control" id="bookUrl" type="text" name="bookUrl"><br>
                   <label class="starlabel">評価：</label>
                   <div class="star-rating">
                     <input type="radio" name="bookRate" value="1"><i></i>
