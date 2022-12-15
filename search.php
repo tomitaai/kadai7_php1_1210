@@ -11,7 +11,7 @@ $params = [
 ];
 
 // 1ページあたりの取得件数
-$maxResults = 10;
+$maxResults = 12;
 
 // ページ番号（1ページ目の情報を取得）
 // ページ毎の配列のうち何番目を取得するかを書く。1ページ目は配列的には0なので0と記入。
@@ -101,9 +101,12 @@ $get_count = count($books);
           <img class="loop_books_img" src="<?php echo $thumbnail; ?>" alt="<?php echo $title; ?>">
           <br />
           <p class="loop_books_title"><b>『<?php echo $title; ?>』</b></p>
-          <p class="loop_books_authors">著者：<?php echo $authors; ?></p>
-          <a href="<?php echo $url; ?>"><button>詳細情報確認</button></a>
-          <button data-bs-toggle="modal" data-bs-target="#registerModal">登録</button>
+          <p class="loop_books_authors"><?php echo $authors; ?></p>
+          <p class="display-none loop_books_url"><?php echo $url; ?></p>
+          <p class="display-none loop_books_img loop_books_memo"><?php echo $thumbnail; ?></p>
+
+          <a href="<?php echo $url; ?>" target="_blank"><button class="btn detail-btn">詳細</button></a>
+          <button data-bs-toggle="modal" data-bs-target="#registerModal" class="btn presave-btn">登録</button>
 
         </div>
       <?php $i++;
@@ -163,29 +166,12 @@ $get_count = count($books);
                   </div>
                 </div>
                 <div class="col-md-6 modal-img">
-                  <img src="<?php echo $thumbnail; ?>" alt="<?php echo $title; ?>">
+                  <img id="bookImg">
                 </div>
               </div>
               <div class="form-group">
                 <label class="normallabel">めも：</label>
-                <textarea cols="50" rows="2" class="form-control" name="bookComment"></textarea>
-                <div id="p1">aa</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                <textarea id="bookMemo" cols="50" rows="2" class="form-control" name="bookComment"></textarea>
               </div>
 
 

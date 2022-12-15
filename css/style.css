@@ -1,16 +1,19 @@
+body{
+  font-size: small;
+}
 .count{
   margin: 20px;
 }
 
 .loop_books_item{
   width: 300px;
-  height: 450px;
+  height: 480px;
   text-align: center;
   border: 1px solid rgb(156, 156, 161);
 }
 
 .loop_books_item:hover{
-  background: #4310c455;
+  background: #4310c42f;
   border: 4px solid #4310c4af;
 }
 
@@ -22,13 +25,18 @@
   text-align: center;
 }
 
-.loop_books_str{
-  padding: 10px;
+.loop_books_title, .loop_books_authors{
+  margin: 8px;
+}
+
+.display-none{
+  display:none;
 }
 
 .btn{
   border: solid #4310c4af;
 }
+
 
 /* 入力フォーム */
 .form-group{
